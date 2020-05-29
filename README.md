@@ -1,18 +1,35 @@
 # CrawlerForBaiduSearch
 Crawler For Baidu Search
-爬虫百度搜索到的网站
-这个小项目在老板的逼迫下做的
-本想着网上随便扒一个，可发现好多程序只能访问第一页，不能访问后面的几页，所以就简单地再学习了一下，写了这个程序
+Copyright @ Gaifield Song
+2020/04/13
 
-## 功能
-爬取百度搜索结果的标题和链接，每页十个
-## 使用
+##1. 说明
+
+此程序是爬虫百度搜索并且进行自动筛选关键词
+1.1 输入为excel表格，每一行为　姓名　＋　主类关键词（必须包含）　＋　次类关键词　＋　剔除类关键词　，　每一个格子内的关键词需要用中文输入法的空格相隔
+1.2 输出:
+	第一页记录每个　搜索姓名　的条目数　（包含主关键词的条目数，　不包含主关键词的条目数，　不确定的链接数量）
+	之后的每一页包含一个姓名的详细信息　：　关键词　＋　主类搜索词　＋　是否包含主类关键词（０：不包括，１：包括，２：不确定）＋　标题　＋　链接　＋详细内容
+
+
+
+##2. 安装
+python2 
+pip2 install requests  
+pip2 install beautifulsoup4
+pip2 install urllib2
+pip2 install xlrd
+pip2 install xlwt
+pip2 install xlutils
+pip2 install eventlet
+goose安装
+git clone https://github.com/grangier/python-goose.git
+cd python-goose
+pip install -r requirements.txt
+python setup.py install
+
+
+
+## 3. 使用
 python2 grab_baidu.py
-还有个py文件是 url2io.py，是用来获取链接的正文，但是我使用下来抓取的文本内容并不是很稳定，所以还是注释(用##和一整段的注释)掉了
-结果会存为一个excel文档 （标题，URL）格式
-
-## 库 （pip）
-beautifulsoup \
-requests \
-xlrd \
-xlwt 
+会提示你输入, 输出为同名加上 _output后缀
